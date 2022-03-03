@@ -6,6 +6,7 @@ const homeCardColor = Color(0xffd0e6a5);
 const topicColor = Color(0xffffdd94);
 const contentColor = Color(0xfffab97b);
 const appBarTitleColor = Colors.blue;
+const quizColor = Colors.teal;
 
 const cardStyle = TextStyle(
   fontWeight: FontWeight.bold,

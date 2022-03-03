@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_notes/data/data.dart';
 import 'package:my_notes/themes.dart';
 import 'package:my_notes/widgets/widgets.dart';
 
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: homeCardColor,
         appBar: MyAppBar(
-          title: "Operating System Notes",
+          title: applicationName,
         ),
         body: MyChapters());
   }

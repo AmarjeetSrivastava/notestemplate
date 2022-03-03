@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:my_notes/widgets/widgets.dart';
 
+final applicationName = "Operating System Notes";
+
 final chapters = [
   "Introduction",
   "Concurrent Processes",

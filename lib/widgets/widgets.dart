@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables
 
 import 'package:bulleted_list/bulleted_list.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:my_notes/data/data.dart';
+import 'package:my_notes/pages/homepage.dart';
 import 'package:my_notes/themes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
@@ -19,6 +22,84 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
         title,
         style: titleStyle,
       ),
+      actions: [
+        IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => Dialog(
+                        child: ListView(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            shrinkWrap: true,
+                            children: [
+                              title != applicationName
+                                  ? InkWell(
+                                      onTap: () async {
+                                        Navigator.pop(context);
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 16),
+                                        child: Text("Home"),
+                                      ),
+                                    )
+                                  : Container(),
+                              title != "About Us"
+                                  ? InkWell(
+                                      onTap: () async {
+                                        Navigator.pop(context);
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    AboutUs()));
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 16),
+                                        child: Text("About us"),
+                                      ),
+                                    )
+                                  : Container(),
+                              InkWell(
+                                onTap: () async {
+                                  Navigator.pop(context);
+                                  launch(
+                                      "https://play.google.com/store/apps/developer?id=papaya+coders");
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 16),
+                                  child: Text("More Apps"),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  Navigator.pop(context);
+                                  launch("https://youtube.com/c/papayacoders");
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 16),
+                                  child: Text("Youtube"),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  Navigator.pop(context);
+                                  launch("https://papayacoders.com");
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 16),
+                                  child: Text("Website"),
+                                ),
+                              ),
+                            ]),
+                      ));
+            },
+            icon: Icon(Icons.more_vert))
+      ],
     );
   }
 
@@ -332,20 +413,6 @@ class TopicName extends StatelessWidget {
 //   }
 // }
 
-class QuizSection extends StatefulWidget {
-  const QuizSection({Key? key}) : super(key: key);
-
-  @override
-  State<QuizSection> createState() => _QuizSectionState();
-}
-
-class _QuizSectionState extends State<QuizSection> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 class Answer extends StatelessWidget {
   final String answerText;
   final Color? answerColor;
@@ -380,13 +447,6 @@ class Answer extends StatelessWidget {
   }
 }
 
-List<Icon> _trackScore = [];
-int _questionNo = 0;
-
-bool answerSelected = false;
-bool endQuiz = false;
-bool correctAnswer = false;
-
 class Quiz1 extends StatefulWidget {
   const Quiz1({Key? key}) : super(key: key);
 
@@ -396,6 +456,12 @@ class Quiz1 extends StatefulWidget {
 
 class _Quiz1State extends State<Quiz1> {
   int _totalScore = 0;
+  List<Icon> _trackScore = [];
+  int _questionNo = 0;
+
+  bool answerSelected = false;
+  bool endQuiz = false;
+  bool correctAnswer = false;
   void _questionAnswered(bool answerScore) {
     setState(() {
       // answer was selected
@@ -452,21 +518,8 @@ class _Quiz1State extends State<Quiz1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal.shade50,
-      appBar: AppBar(
-        elevation: 6,
-        shadowColor: Colors.teal,
-        title: const Text(
-          'Quiz App',
-          style: TextStyle(
-            color: Colors.tealAccent,
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-          ),
-        ),
-        backgroundColor: Colors.teal.shade500,
-        centerTitle: true,
-      ),
+      backgroundColor: homeCardColor,
+      appBar: MyAppBar(title: "Quiz"),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -479,8 +532,7 @@ class _Quiz1State extends State<Quiz1> {
               children: [
                 Text(
                   'Total Score: ${_totalScore.toString()}',
-                  style: const TextStyle(
-                      fontSize: 18.0, fontWeight: FontWeight.bold),
+                  style: textStyle.copyWith(fontSize: 18),
                 ),
               ],
             ),
@@ -490,24 +542,11 @@ class _Quiz1State extends State<Quiz1> {
             const Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Divider(
-                color: Colors.teal,
+                color: quizColor,
                 thickness: 2,
               ),
             ),
-            /*Container(
-                width: double.infinity,
-                margin: const EdgeInsets.only(
-                    bottom: 10.0, left: 30.0, right: 30.0),
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 50.0, vertical: 20.0),
-                decoration: BoxDecoration(
-                  color: Colors.purpleAccent,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Center(
-                child: 
-              ),
-              ),*/
+
             SizedBox(
               height: 20,
             ),
@@ -516,11 +555,7 @@ class _Quiz1State extends State<Quiz1> {
               child: Text(
                 "Q.No.${_questionNo + 1}: ${questions1[_questionNo]['question']}",
                 textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.teal.shade900,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textTitleStyle.copyWith(color: quizColor),
               ),
             ),
             SizedBox(
@@ -548,9 +583,8 @@ class _Quiz1State extends State<Quiz1> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 15, top: 25),
               child: Material(
-                color: Colors.teal.shade600,
+                color: quizColor,
                 borderRadius: BorderRadius.circular(15),
-                shadowColor: Colors.teal.shade900,
                 elevation: 12,
                 child: MaterialButton(
                   minWidth: MediaQuery.of(context).size.width,
@@ -685,6 +719,55 @@ class Results extends StatelessWidget {
                     )),
               ),
             ]),
+      ),
+    );
+  }
+}
+
+class AboutUs extends StatelessWidget {
+  const AboutUs({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MyAppBar(title: "About Us"),
+      body: Padding(
+        padding: EdgeInsets.all(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 60,
+            ),
+            CircleAvatar(
+              backgroundColor: appBarColor,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Image.asset(
+                  "assets/papaya_icon.png",
+                ),
+              ),
+              radius: 75,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Papaya Coders",
+              style: titleStyle.copyWith(
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Eterni nostro lui dare porgiamo di cosa benignita fatica cospetto lui. Tanto ci fuor di ma come, in della come. Mut gedanken einz'ges jedoch weißt wo zürnen, und du manchmal dich heimat wilde blieb gartens. Stund' vom ist oft in. Eterni nostro lui dare porgiamo di cosa benignita fatica cospetto lui. Tanto ci fuor di ma come, in della come. Mut gedanken einz'ges jedoch weißt wo zürnen, und du manchmal dich heimat wilde blieb gartens. Stund' vom ist oft in.",
+              style: textStyle,
+              textAlign: TextAlign.justify,
+            ),
+          ],
+        ),
       ),
     );
   }
