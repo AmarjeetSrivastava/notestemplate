@@ -1,159 +1,156 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
-
-import 'package:my_notes/widgets/widgets.dart';
+import 'package:my_notes/models/model.dart';
+import 'package:my_notes/pages/topics.dart';
 
 const applicationName = "Operating System Notes";
 
-//Chapters List
-final chapters = [
-  "Introduction",
-  "Concurrent Processes",
-  "CPU Scheduling",
-  "Memory management",
-  "I/O Management and Disk Scheduling",
-];
+// //Chapters List
+// final chapters = [
+//   "Introduction",
+//   "Concurrent Processes",
+//   "CPU Scheduling",
+//   "Memory management",
+//   "I/O Management and Disk Scheduling",
+// ];
 
-//Topics Lists
-List topic1 = [
-  "Operating System & Function",
-  "Classifiation of Operating System",
-  "Operating System Structure",
-  "System Components",
-  "Operating System Services",
-  "Reenterent Kernels",
-  "Quiz1",
-];
-List topic2 = [
-  "Process Concept",
-  "Principal of Concurrency",
-  "Producer/Consumer Problem",
-  "Mutual Exclution",
-  "Critical Section Problem",
-  "Dekker's Solution",
-  "PeterSon's Solution",
-  "Semaphores",
-  "Test and Set Operation",
-  "Classical Problem in Concurrency",
-  "Inter Process Communicationn",
-  "Process Generation",
-  "Quiz2",
-];
-List topic3 = [
-  "Scheduling Concepts",
-  "Performance Criteria",
-  "Process States",
-  "Process Transition Diagram",
-  "Schedulers",
-  "Process Control Block",
-  "Process Address Space",
-  "Process Identification Informatiion",
-  "Threads and their Management",
-  "Scheduling Algorithms",
-  "MultiProcessor Scheduling",
-  "Deadlock",
-  "Quiz3",
-];
-List topic4 = [
-  "Base Bare Machine",
-  "Resident Monitor",
-  "Multiprogramming with Fixed Partition",
-  "MultiProgramming with Variable Partition",
-  "Protection Scemes",
-  "Paging",
-  "Segmenttaion",
-  "Paged Segmentation",
-  "Virtual Memory Concepts",
-  "Demand Paging",
-  "Page Replacement Algorithms",
-  "Thrasing",
-  "Cache Memory Organization",
-  "Locality of Reference",
-  "Quiz4",
-];
-List topic5 = [
-  "I/O Devices",
-  "I/O Subsystems",
-  "I/O Bufferings",
-  "Disk Storage and Disk Scheduling",
-  "RAID",
-  "File System",
-  "File System Implementation",
-  "File System Protection and Security",
-  "Quiz",
-];
+// //Topics Lists
+// List topic1 = [
+//   "Operating System & Function",
+//   "Classifiation of Operating System",
+//   "Operating System Structure",
+//   "System Components",
+//   "Operating System Services",
+//   "Reenterent Kernels",
+//   "Quiz1",
+// ];
+// List topic2 = [
+//   "Process Concept",
+//   "Principal of Concurrency",
+//   "Producer/Consumer Problem",
+//   "Mutual Exclution",
+//   "Critical Section Problem",
+//   "Dekker's Solution",
+//   "PeterSon's Solution",
+//   "Semaphores",
+//   "Test and Set Operation",
+//   "Classical Problem in Concurrency",
+//   "Inter Process Communicationn",
+//   "Process Generation",
+//   "Quiz2",
+// ];
+// List topic3 = [
+//   "Scheduling Concepts",
+//   "Performance Criteria",
+//   "Process States",
+//   "Process Transition Diagram",
+//   "Schedulers",
+//   "Process Control Block",
+//   "Process Address Space",
+//   "Process Identification Informatiion",
+//   "Threads and their Management",
+//   "Scheduling Algorithms",
+//   "MultiProcessor Scheduling",
+//   "Deadlock",
+//   "Quiz3",
+// ];
+// List topic4 = [
+//   "Base Bare Machine",
+//   "Resident Monitor",
+//   "Multiprogramming with Fixed Partition",
+//   "MultiProgramming with Variable Partition",
+//   "Protection Scemes",
+//   "Paging",
+//   "Segmenttaion",
+//   "Paged Segmentation",
+//   "Virtual Memory Concepts",
+//   "Demand Paging",
+//   "Page Replacement Algorithms",
+//   "Thrasing",
+//   "Cache Memory Organization",
+//   "Locality of Reference",
+//   "Quiz4",
+// ];
+// List topic5 = [
+//   "I/O Devices",
+//   "I/O Subsystems",
+//   "I/O Bufferings",
+//   "Disk Storage and Disk Scheduling",
+//   "RAID",
+//   "File System",
+//   "File System Implementation",
+//   "File System Protection and Security",
+//   "Quiz",
+// ];
 
 //Widgets Lists
-List topicWidget1 = [
-  TopicName(
-    title: topic1[0],
-  ),
-  Text("Topic 12"),
-  Text("Topic 13"),
-  Text("Topic 14"),
-  Text("Topic 15"),
-  Text("Topic 16"),
-  Quiz1(),
-];
-List topicWidget2 = [
-  Text("topic 21"),
-  Text("topic 22"),
-  Text("topic 23"),
-  Text("topic 24"),
-  Text("topic 25"),
-  Text("topic 26"),
-  Text("topic 27"),
-  Text("topic 28"),
-  Text("topic 29"),
-  Text("topic 2a"),
-  Text("topic 2b"),
-  Text("topic 2c"),
-  Text("topic 2d"),
-];
-List topicWidget3 = [
-  Text("topic 31"),
-  Text("topic 32"),
-  Text("topic 33"),
-  Text("topic 34"),
-  Text("topic 35"),
-  Text("topic 36"),
-  Text("topic 37"),
-  Text("topic 38"),
-  Text("topic 39"),
-  Text("topic 3a"),
-  Text("topic 3b"),
-  Text("topic 3c"),
-  Text("topic 3d"),
-];
-List topicWidget4 = [
-  Text("topic 41"),
-  Text("topic 42"),
-  Text("topic 43"),
-  Text("topic 44"),
-  Text("topic 45"),
-  Text("topic 46"),
-  Text("topic 47"),
-  Text("topic 48"),
-  Text("topic 49"),
-  Text("topic 4a"),
-  Text("topic 4b"),
-  Text("topic 4c"),
-  Text("topic 4d"),
-  Text("topic 4e"),
-  Text("topic 4f"),
-];
-List topicWidget5 = [
-  Text("topic 51"),
-  Text("topic 52"),
-  Text("topic 53"),
-  Text("topic 54"),
-  Text("topic 55"),
-  Text("topic 56"),
-  Text("topic 57"),
-  Text("topic 58"),
-  Text("topic 59"),
-];
+// List topicWidget1 = [
+//   TopicName(
+//     title: topic1[0],
+//   ),
+//   Text("Topic 12"),
+//   Text("Topic 13"),
+//   Text("Topic 14"),
+//   Text("Topic 15"),
+//   Text("Topic 16"),
+//   Quiz1(),
+// ];
+// List topicWidget2 = [
+//   Text("topic 21"),
+//   Text("topic 22"),
+//   Text("topic 23"),
+//   Text("topic 24"),
+//   Text("topic 25"),
+//   Text("topic 26"),
+//   Text("topic 27"),
+//   Text("topic 28"),
+//   Text("topic 29"),
+//   Text("topic 2a"),
+//   Text("topic 2b"),
+//   Text("topic 2c"),
+//   Text("topic 2d"),
+// ];
+// List topicWidget3 = [
+//   Text("topic 31"),
+//   Text("topic 32"),
+//   Text("topic 33"),
+//   Text("topic 34"),
+//   Text("topic 35"),
+//   Text("topic 36"),
+//   Text("topic 37"),
+//   Text("topic 38"),
+//   Text("topic 39"),
+//   Text("topic 3a"),
+//   Text("topic 3b"),
+//   Text("topic 3c"),
+//   Text("topic 3d"),
+// ];
+// List topicWidget4 = [
+//   Text("topic 41"),
+//   Text("topic 42"),
+//   Text("topic 43"),
+//   Text("topic 44"),
+//   Text("topic 45"),
+//   Text("topic 46"),
+//   Text("topic 47"),
+//   Text("topic 48"),
+//   Text("topic 49"),
+//   Text("topic 4a"),
+//   Text("topic 4b"),
+//   Text("topic 4c"),
+//   Text("topic 4d"),
+//   Text("topic 4e"),
+//   Text("topic 4f"),
+// ];
+// List topicWidget5 = [
+//   Text("topic 51"),
+//   Text("topic 52"),
+//   Text("topic 53"),
+//   Text("topic 54"),
+//   Text("topic 55"),
+//   Text("topic 56"),
+//   Text("topic 57"),
+//   Text("topic 58"),
+//   Text("topic 59"),
+// ];
 
 // final questions1 = [
 //   {
@@ -230,82 +227,79 @@ List topicWidget5 = [
 //   },
 // ];
 
-//Question Model
-class Questionss {
-  final String question;
-  List<Answerss> answerss;
-  Questionss({
-    required this.question,
-    required this.answerss,
-  });
-}
-
-//Answers Model
-class Answerss {
-  String answer;
-  bool score;
-  Answerss({
-    required this.answer,
-    required this.score,
-  });
-}
-
 //Questions List
-final ques = [
-  Questionss(
+final questions = [
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
-  Questionss(
+  Question(
     question: "question",
-    answerss: [
-      Answerss(answer: "answer", score: true),
-      Answerss(answer: "answer", score: false),
-      Answerss(answer: "answer", score: false),
+    answers: [
+      Answers(answer: "answer", score: true),
+      Answers(answer: "answer", score: false),
+      Answers(answer: "answer", score: false),
     ],
   ),
+];
+
+//Chapters and Topic List
+final chapters = [
+  Chapter(chapname: "Introduction", topn: [
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+  ]),
+  Chapter(chapname: "Introduction", topn: [
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+    Topic(name: "name", widget: const TopicName(title: "title")),
+  ]),
 ];

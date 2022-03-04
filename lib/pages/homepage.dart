@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:my_notes/data/data.dart';
 import 'package:my_notes/themes.dart';
@@ -10,7 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: homeCardColor,
         appBar: MyAppBar(
           title: applicationName,
