@@ -4,8 +4,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:my_notes/widgets/widgets.dart';
 
-final applicationName = "Operating System Notes";
+const applicationName = "Operating System Notes";
 
+//Chapters List
 final chapters = [
   "Introduction",
   "Concurrent Processes",
@@ -14,6 +15,7 @@ final chapters = [
   "I/O Management and Disk Scheduling",
 ];
 
+//Topics Lists
 List topic1 = [
   "Operating System & Function",
   "Classifiation of Operating System",
@@ -23,7 +25,6 @@ List topic1 = [
   "Reenterent Kernels",
   "Quiz1",
 ];
-
 List topic2 = [
   "Process Concept",
   "Principal of Concurrency",
@@ -82,6 +83,8 @@ List topic5 = [
   "File System Protection and Security",
   "Quiz",
 ];
+
+//Widgets Lists
 List topicWidget1 = [
   TopicName(
     title: topic1[0],
@@ -152,86 +155,157 @@ List topicWidget5 = [
   Text("topic 59"),
 ];
 
-final questions1 = [
-  {
-    'question': 'Flutter is a:',
-    'answers': [
-      {'answerText': 'Framework', 'score': true},
-      {'answerText': 'Programming Language', 'score': false},
-      {'answerText': 'Operating System', 'score': false},
-    ],
-  },
-  {
-    'question': 'A __________ is a sequence of asynchronus events',
-    'answers': [
-      {'answerText': 'Current', 'score': false},
-      {'answerText': 'Flow', 'score': false},
-      {'answerText': 'Stream', 'score': true},
-    ],
-  },
-  {
-    'question': 'Flutter is a Framework of:',
-    'answers': [
-      {'answerText': 'JavaScript', 'score': false},
-      {'answerText': 'Java', 'score': false},
-      {'answerText': 'Dart', 'score': true},
-    ],
-  },
-  {
-    'question': 'Dart and Flutter are products of:',
-    'answers': [
-      {'answerText': 'Apple', 'score': false},
-      {'answerText': 'Google', 'score': true},
-      {'answerText': 'BMW', 'score': false},
-    ],
-  },
-  {
-    'question': 'Which one is a deprecated element in flutter',
-    'answers': [
-      {'answerText': 'RaisedButton', 'score': true},
-      {'answerText': 'SingleChildScrollView', 'score': false},
-      {'answerText': 'Container', 'score': false},
-    ],
-  },
-  {
-    'question': 'When was Flutter Created',
-    'answers': [
-      {'answerText': 'May, 2017', 'score': true},
-      {'answerText': 'January, 2016', 'score': false},
-      {'answerText': 'April, 2018', 'score': false},
-    ],
-  },
-  {
-    'question': 'Official Website of Flutter is:',
-    'answers': [
-      {'answerText': 'flutter.com', 'score': false},
-      {'answerText': 'flutter.dev', 'score': true},
-      {'answerText': 'flutter.net', 'score': false},
-    ],
-  },
-  {
-    'question': 'Command to build apk in flutter',
-    'answers': [
-      {'answerText': 'flutter apk build', 'score': false},
-      {'answerText': 'flutter create apk', 'score': false},
-      {'answerText': 'flutter build apk', 'score': true},
-    ],
-  },
-  {
-    'question': 'Command to delete build in Flutter:',
-    'answers': [
-      {'answerText': 'flutter clean build', 'score': false},
-      {'answerText': 'flutter delete build', 'score': false},
-      {'answerText': 'flutter clean', 'score': true},
-    ],
-  },
-];
+// final questions1 = [
+//   {
+//     'question': 'Flutter is a:',
+//     'answers': [
+//       {'answerText': 'Framework', 'score': true},
+//       {'answerText': 'Programming Language', 'score': false},
+//       {'answerText': 'Operating System', 'score': false},
+//     ],
+//   },
+//   {
+//     'question': 'A __________ is a sequence of asynchronus events',
+//     'answers': [
+//       {'answerText': 'Current', 'score': false},
+//       {'answerText': 'Flow', 'score': false},
+//       {'answerText': 'Stream', 'score': true},
+//     ],
+//   },
+//   {
+//     'question': 'Flutter is a Framework of:',
+//     'answers': [
+//       {'answerText': 'JavaScript', 'score': false},
+//       {'answerText': 'Java', 'score': false},
+//       {'answerText': 'Dart', 'score': true},
+//     ],
+//   },
+//   {
+//     'question': 'Dart and Flutter are products of:',
+//     'answers': [
+//       {'answerText': 'Apple', 'score': false},
+//       {'answerText': 'Google', 'score': true},
+//       {'answerText': 'BMW', 'score': false},
+//     ],
+//   },
+//   {
+//     'question': 'Which one is a deprecated element in flutter',
+//     'answers': [
+//       {'answerText': 'RaisedButton', 'score': true},
+//       {'answerText': 'SingleChildScrollView', 'score': false},
+//       {'answerText': 'Container', 'score': false},
+//     ],
+//   },
+//   {
+//     'question': 'When was Flutter Created',
+//     'answers': [
+//       {'answerText': 'May, 2017', 'score': true},
+//       {'answerText': 'January, 2016', 'score': false},
+//       {'answerText': 'April, 2018', 'score': false},
+//     ],
+//   },
+//   {
+//     'question': 'Official Website of Flutter is:',
+//     'answers': [
+//       {'answerText': 'flutter.com', 'score': false},
+//       {'answerText': 'flutter.dev', 'score': true},
+//       {'answerText': 'flutter.net', 'score': false},
+//     ],
+//   },
+//   {
+//     'question': 'Command to build apk in flutter',
+//     'answers': [
+//       {'answerText': 'flutter apk build', 'score': false},
+//       {'answerText': 'flutter create apk', 'score': false},
+//       {'answerText': 'flutter build apk', 'score': true},
+//     ],
+//   },
+//   {
+//     'question': 'Command to delete build in Flutter:',
+//     'answers': [
+//       {'answerText': 'flutter clean build', 'score': false},
+//       {'answerText': 'flutter delete build', 'score': false},
+//       {'answerText': 'flutter clean', 'score': true},
+//     ],
+//   },
+// ];
 
-// class Answers {
-//   final String answer;
-//   final bool score;
-//   Answers({
-//     required this.answer,
-//     required this.score,
-//   });
-// }
+//Question Model
+class Questionss {
+  final String question;
+  List<Answerss> answerss;
+  Questionss({
+    required this.question,
+    required this.answerss,
+  });
+}
+
+//Answers Model
+class Answerss {
+  String answer;
+  bool score;
+  Answerss({
+    required this.answer,
+    required this.score,
+  });
+}
+
+//Questions List
+final ques = [
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+  Questionss(
+    question: "question",
+    answerss: [
+      Answerss(answer: "answer", score: true),
+      Answerss(answer: "answer", score: false),
+      Answerss(answer: "answer", score: false),
+    ],
+  ),
+];

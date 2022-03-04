@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables
 
 import 'package:bulleted_list/bulleted_list.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:my_notes/data/data.dart';
@@ -484,7 +483,7 @@ class _Quiz1State extends State<Quiz1> {
               ),
       );
       //when the quiz ends
-      if (_questionNo + 1 == questions1.length) {
+      if (_questionNo + 1 == ques.length) {
         endQuiz = true;
       }
     });
@@ -501,7 +500,7 @@ class _Quiz1State extends State<Quiz1> {
       correctAnswer = false;
     });
     // what happens at the end of the quiz
-    if (_questionNo >= questions1.length) {
+    if (_questionNo >= ques.length) {
       _resetQuiz();
     }
   }
@@ -553,7 +552,7 @@ class _Quiz1State extends State<Quiz1> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "Q.No.${_questionNo + 1}: ${questions1[_questionNo]['question']}",
+                "Q.No.${_questionNo + 1}: ${ques[_questionNo].question}",
                 textAlign: TextAlign.justify,
                 style: textTitleStyle.copyWith(color: quizColor),
               ),
@@ -561,10 +560,9 @@ class _Quiz1State extends State<Quiz1> {
             SizedBox(
               height: 20,
             ),
-            ...(questions1[_questionNo]['answers'] as List<Map<String, Object>>)
-                .map(
+            ...(ques[_questionNo].answerss).map(
               (answer) => Answer(
-                answerText: "${answer['answerText']}",
+                answerText: "${answer.answer}",
                 answerColor: answerSelected
                     ? correctAnswer
                         ? Colors.green.shade200
@@ -576,7 +574,7 @@ class _Quiz1State extends State<Quiz1> {
                     return;
                   }
                   //answer is being selected
-                  _questionAnswered(answer['score'] as bool);
+                  _questionAnswered(answer.score as bool);
                 },
               ),
             ),
@@ -639,7 +637,7 @@ class _Quiz1State extends State<Quiz1> {
             Container(
               padding: const EdgeInsets.all(15.0),
               child: Text(
-                '${_questionNo + 1}/${questions1.length}',
+                '${_questionNo + 1}/${ques.length}',
                 style: const TextStyle(
                     fontSize: 40.0, fontWeight: FontWeight.bold),
               ),
