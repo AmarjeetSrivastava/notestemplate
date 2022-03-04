@@ -128,7 +128,7 @@ class MyChapters extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => CardDesign(
-                        title: chapters[index].chapname, indexing: index)),
+                        title: chapters[index].chapterName, indexing: index)),
               );
             },
             child: Column(
@@ -138,7 +138,7 @@ class MyChapters extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  chapters[index].chapname,
+                  chapters[index].chapterName,
                   textAlign: TextAlign.center,
                   style: cardStyle,
                 ),

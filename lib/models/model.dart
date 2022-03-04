@@ -32,10 +32,10 @@ class Topic {
 
 //Chapter Model
 class Chapter {
-  String chapname;
-  List<Topic> topn;
+  String chapterName;
+  List<Topic> topics;
   Chapter({
-    required this.chapname,
-    required this.topn,
+    required this.chapterName,
+    required this.topics,
   });
 }

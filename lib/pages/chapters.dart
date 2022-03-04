@@ -19,7 +19,7 @@ class CardDesign extends StatelessWidget {
       appBar: MyAppBar(title: title),
       body: GridView.builder(
           padding: const EdgeInsets.all(30),
-          itemCount: chapters[indexing].topn.length,
+          itemCount: chapters[indexing].topics.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 30,
@@ -36,7 +36,7 @@ class CardDesign extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            chapters[indexing].topn[index].widget),
+                            chapters[indexing].topics[index].widget),
                   );
                 },
                 child: Column(
@@ -46,7 +46,7 @@ class CardDesign extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      chapters[indexing].topn[index].name,
+                      chapters[indexing].topics[index].name,
                       textAlign: TextAlign.center,
                       style: cardStyle,
                     ),

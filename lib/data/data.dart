@@ -1,18 +1,11 @@
 import 'package:my_notes/models/model.dart';
+import 'package:my_notes/pages/quiz.dart';
 import 'package:my_notes/pages/topics.dart';
 
 const applicationName = "Operating System Notes";
 
-// //Chapters List
-// final chapters = [
-//   "Introduction",
-//   "Concurrent Processes",
-//   "CPU Scheduling",
-//   "Memory management",
-//   "I/O Management and Disk Scheduling",
-// ];
+//Topics Lists
 
-// //Topics Lists
 // List topic1 = [
 //   "Operating System & Function",
 //   "Classifiation of Operating System",
@@ -289,17 +282,141 @@ final questions = [
 
 //Chapters and Topic List
 final chapters = [
-  Chapter(chapname: "Introduction", topn: [
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
+  Chapter(chapterName: "Introduction", topics: [
+    Topic(
+        name: "Operating System & Function",
+        widget: TopicName(title: "yahaa par name lana hai")),
+    Topic(
+        name: "Classifiation of Operating System",
+        widget: const TopicName(title: "title")),
+    Topic(
+        name: "Operating System Structure",
+        widget: const TopicName(title: "title")),
+    Topic(name: "System Components", widget: const TopicName(title: "title")),
+    Topic(
+        name: "Operating System Services",
+        widget: const TopicName(title: "title")),
+    Topic(name: "Reenterent Kernels", widget: const TopicName(title: "title")),
+    Topic(name: "Quiz", widget: const Quiz1()),
   ]),
-  Chapter(chapname: "Introduction", topn: [
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-    Topic(name: "name", widget: const TopicName(title: "title")),
-  ]),
+  Chapter(
+    chapterName: "Concurrent Processes",
+    topics: [
+      Topic(name: "Process Concept", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Principal of Concurrency",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Producer/Consumer Problem",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Mutual Exclution", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Critical Section Problem",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Dekker's Solution", widget: const TopicName(title: "title")),
+      Topic(
+          name: "PeterSon's Solution", widget: const TopicName(title: "title")),
+      Topic(name: "Semaphores", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Test and Set Operation",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Classical Problem in Concurrency",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Inter Process Communicationn",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Process Generation", widget: const TopicName(title: "title")),
+      Topic(name: "Quiz", widget: const TopicName(title: "title")),
+    ],
+  ),
+  Chapter(
+    chapterName: "CPU Scheduling",
+    topics: [
+      Topic(
+          name: "Scheduling Concepts", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Performance Criteria",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Process States", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Process Transition Diagram",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Schedulers", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Process Control Block",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Process Address Space",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Process Identification Informatiion",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Threads and their Management",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Scheduling Algorithms",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "MultiProcessor Scheduling",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Deadlock", widget: const TopicName(title: "title")),
+      Topic(name: "Quiz", widget: const TopicName(title: "title")),
+    ],
+  ),
+  Chapter(
+    chapterName: "Memory management",
+    topics: [
+      Topic(name: "Base Bare Machine", widget: const TopicName(title: "title")),
+      Topic(name: "Resident Monitor", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Multiprogramming with Fixed Partition",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "MultiProgramming with Variable Partition",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Protection Scemes", widget: const TopicName(title: "title")),
+      Topic(name: "Paging", widget: const TopicName(title: "title")),
+      Topic(name: "Segmentaion", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Paged Segmentation", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Virtual Memory Concepts",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Demand Paging", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Page Replacement Algorithms",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Thrasing", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Cache Memory Organization",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "Locality of Reference",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Quiz", widget: const TopicName(title: "title")),
+    ],
+  ),
+  Chapter(
+    chapterName: "I/O Management and Disk Scheduling",
+    topics: [
+      Topic(name: "I/O Devices", widget: const TopicName(title: "title")),
+      Topic(name: "I/O Subsystems", widget: const TopicName(title: "title")),
+      Topic(name: "I/O Bufferings", widget: const TopicName(title: "title")),
+      Topic(
+          name: "Disk Storage and Disk Scheduling",
+          widget: const TopicName(title: "title")),
+      Topic(name: "RAID", widget: const TopicName(title: "title")),
+      Topic(name: "File System", widget: const TopicName(title: "title")),
+      Topic(
+          name: "File System Implementation",
+          widget: const TopicName(title: "title")),
+      Topic(
+          name: "File System Protection and Security",
+          widget: const TopicName(title: "title")),
+      Topic(name: "Quiz", widget: const TopicName(title: "title")),
+    ],
+  ),
 ];
