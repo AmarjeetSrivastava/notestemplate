@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_notes/pages/quiz.dart';
+import 'package:my_notes/themes.dart';
 
 class Results extends StatelessWidget {
   final int totalScore;
@@ -11,17 +12,13 @@ class Results extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal.shade50,
+      backgroundColor: resultbackgroundcolor,
       appBar: AppBar(
         elevation: 6,
-        shadowColor: Colors.teal,
+        shadowColor: quizColor,
         title: const Text(
           'Results',
-          style: TextStyle(
-            color: Colors.tealAccent,
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-          ),
+          style: resultStyle,
         ),
         backgroundColor: Colors.teal.shade500,
         centerTitle: true,
@@ -38,20 +35,16 @@ class Results extends StatelessWidget {
                       ? 'Congratulations! Your final score is: $totalScore'
                       : 'Your final score is: $totalScore. Better luck next time!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    color: Colors.teal.shade900,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: resultTextStyle,
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Material(
-                color: Colors.teal.shade600,
+                color: quizButtonColor,
                 borderRadius: BorderRadius.circular(15),
-                shadowColor: Colors.teal.shade900,
+                shadowColor: quizColor,
                 elevation: 12,
                 child: MaterialButton(
                     minWidth: MediaQuery.of(context).size.width,
@@ -63,7 +56,7 @@ class Results extends StatelessWidget {
                     },
                     child: const Text(
                       "Restart Quiz",
-                      style: TextStyle(fontSize: 25, color: Colors.white),
+                      style: restartStyle,
                     )),
               ),
             ]),

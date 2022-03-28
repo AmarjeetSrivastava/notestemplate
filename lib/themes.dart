@@ -7,6 +7,8 @@ const topicColor = Color(0xffffdd94);
 const contentColor = Color(0xfffab97b);
 const appBarTitleColor = Colors.blue;
 const quizColor = Colors.teal;
+final resultbackgroundcolor = quizColor.shade50;
+final quizButtonColor = quizColor.shade600;
 
 const cardStyle = TextStyle(
   fontWeight: FontWeight.bold,
@@ -27,3 +29,14 @@ const textStyle = TextStyle(
   fontWeight: FontWeight.w600,
   color: Colors.black,
 );
+const resultStyle = TextStyle(
+  color: Colors.tealAccent,
+  fontWeight: FontWeight.bold,
+  fontSize: 30,
+);
+const resultTextStyle = TextStyle(
+  fontSize: 40.0,
+  color: quizColor,
+  fontWeight: FontWeight.bold,
+);
+const restartStyle = TextStyle(fontSize: 25, color: Colors.white);

@@ -22,11 +22,11 @@ class Answers {
 
 //Topic Model
 class Topic {
-  String name;
-  Widget widget;
+  String? name;
+  Widget? widget;
   Topic({
-    required this.name,
-    required this.widget,
+    this.name,
+    this.widget,
   });
 }
 

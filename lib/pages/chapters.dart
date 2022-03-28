@@ -36,7 +36,7 @@ class CardDesign extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            chapters[indexing].topics[index].widget),
+                            chapters[indexing].topics[index].widget!),
                   );
                 },
                 child: Column(
@@ -46,7 +46,7 @@ class CardDesign extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      chapters[indexing].topics[index].name,
+                      chapters[indexing].topics[index].name!,
                       textAlign: TextAlign.center,
                       style: cardStyle,
                     ),

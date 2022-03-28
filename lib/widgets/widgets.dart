@@ -15,87 +15,87 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: appBarColor,
       centerTitle: true,
+      leading: title != applicationName
+          ? IconButton(
+              onPressed: () async {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios_new))
+          : null,
       title: Text(
         title,
         style: titleStyle,
       ),
       actions: [
-        IconButton(
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) => Dialog(
-                        child: ListView(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            shrinkWrap: true,
-                            children: [
-                              title != applicationName
-                                  ? InkWell(
-                                      onTap: () async {
-                                        Navigator.pop(context);
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 16),
-                                        child: const Text("Home"),
-                                      ),
-                                    )
-                                  : Container(),
-                              title != "About Us"
-                                  ? InkWell(
-                                      onTap: () async {
-                                        Navigator.pop(context);
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const AboutUs()));
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 16),
-                                        child: const Text("About us"),
-                                      ),
-                                    )
-                                  : Container(),
-                              InkWell(
-                                onTap: () async {
-                                  Navigator.pop(context);
-                                  launch(
-                                      "https://play.google.com/store/apps/developer?id=papaya+coders");
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 16),
-                                  child: const Text("More Apps"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () async {
-                                  Navigator.pop(context);
-                                  launch("https://youtube.com/c/papayacoders");
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 16),
-                                  child: const Text("Youtube"),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () async {
-                                  Navigator.pop(context);
-                                  launch("https://papayacoders.com");
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 16),
-                                  child: const Text("Website"),
-                                ),
-                              ),
-                            ]),
-                      ));
-            },
-            icon: const Icon(Icons.more_vert))
+        PopupMenuButton(
+          itemBuilder: (context) => [
+            PopupMenuItem(
+                child: InkWell(
+              onTap: () async {
+                Navigator.pop(context);
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                child: const Text("Home"),
+              ),
+            )),
+            PopupMenuItem(
+                child: InkWell(
+              onTap: () async {
+                Navigator.pop(context);
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const AboutUs()));
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                child: const Text("About us"),
+              ),
+            )),
+            PopupMenuItem(
+              child: InkWell(
+                onTap: () async {
+                  Navigator.pop(context);
+                  launch(
+                      "https://play.google.com/store/apps/developer?id=papaya+coders");
+                },
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  child: const Text("More Apps"),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              child: InkWell(
+                onTap: () async {
+                  Navigator.pop(context);
+                  launch("https://youtube.com/c/papayacoders");
+                },
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  child: const Text("Youtube"),
+                ),
+              ),
+            ),
+            PopupMenuItem(
+              child: InkWell(
+                onTap: () async {
+                  Navigator.pop(context);
+                  launch("https://papayacoders.com");
+                },
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  child: const Text("Website"),
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
@@ -154,6 +154,22 @@ class MyChapters extends StatelessWidget {
   }
 }
 
+class TopicPage extends StatelessWidget {
+  final String title;
+  final Widget topicname;
+  const TopicPage({Key? key, required this.title, required this.topicname})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MyAppBar(title: title),
+      body: SingleChildScrollView(
+        child: Container(padding: const EdgeInsets.all(30), child: topicname),
+      ),
+    );
+  }
+}
 // class MyTopics extends StatelessWidget {
 //   final indexxs;
 //   const MyTopics({

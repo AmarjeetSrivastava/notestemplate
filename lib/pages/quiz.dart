@@ -187,7 +187,7 @@ class _Quiz1State extends State<Quiz1> {
                   },
                   child: Text(
                     endQuiz ? 'Result' : 'Next Question',
-                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                    style: restartStyle,
                   ),
                 ),
               ),
@@ -196,8 +196,7 @@ class _Quiz1State extends State<Quiz1> {
               padding: const EdgeInsets.all(15.0),
               child: Text(
                 '${_questionNo + 1}/${questions.length}',
-                style: const TextStyle(
-                    fontSize: 40.0, fontWeight: FontWeight.bold),
+                style: cardStyle.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(
